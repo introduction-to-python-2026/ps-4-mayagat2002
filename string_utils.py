@@ -1,17 +1,19 @@
 
 def split_before_each_uppercases(formula):
-
-    import re
-    parts = re.findall('[A-Z][^A-Z]*', formula)
-    return parts
+ sentence =[]
+    for letter in formula:
+       if letter == upercase:
+        sentence.append " "
+    sentence.append"letter"
+    return sentence
 
 def split_at_first_digit(formula):
-    
-    import re
-    match = re.search(r'(.*?)(\d.*)', formula)
-    
-    if match:
-        return list(match.groups())
+    word ="" 
+    form = []
+    for letter in formula:
+        word.append(letter)
+     if(letter == digit) :
+      
     else:
         return [formula, ""]
 
