@@ -12,13 +12,9 @@ def split_at_first_digit(formula):
     return prefix, number
 
 def split_before_each_uppercases(formula):
-    # Test 5: Empty string → return empty list
+    # Handle empty string
     if formula == "":
         return []
-
-    # Test 2: No uppercase letters → return the entire string
-    if not any(ch.isupper() for ch in formula):
-        return [formula]
 
     start = 0
     end = 1
@@ -26,11 +22,12 @@ def split_before_each_uppercases(formula):
 
     # Loop through characters starting at index 1
     for ch in formula[1:]:
-        # If uppercase, slice and reset start
         if ch.isupper():
             split_formula.append(formula[start:end])
             start = end
         end += 1
 
-    # Append the last part
+    # Append the final section
     split_formula.append(formula[start:end])
+
+    return split_formula
