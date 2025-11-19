@@ -1,23 +1,12 @@
-
-def split_before_each_uppercases(formula):
- sentence =[]
-    for letter in formula:
-       if letter == upercase:
-        sentence.append " "
-    sentence.append"letter"
-    return sentence
-
 def split_at_first_digit(formula):
-    word ="" 
-    form = []
-    for letter in formula:
-        word.append(letter)
-     if(letter == digit) :
-      
-    else:
-        return [formula, ""]
+    digit_location = 1
+    for ch in formula[1:]:
+        if ch.isdigit():
+            break
+        digit_location += 1
+    if digit_location == len(formula):
+        return formula, 1
+    prefix = formula[:digit_location]
+    number = formula[digit_location:]
 
-
-def split_chem_formula(formula):
-    import re
-    return re.findall(r'([A-Z][a-z]?\d*)', formula)
+    return prefix, number
